@@ -79,7 +79,32 @@ var produto = {
 
 connection.query("select * from livros set ?", produto, callbak);
 ```
+##Exemplo de um ConnectionFactory ##
+```
+var mysql = require('mysql')
+    , fs = require('fs');
 
+function ConnectionFactory() {
+
+    if (!global.database) {
+        console.log("Lendo o arquivo de Configuracao");
+        console.log(JSON.parse(fs.readFileSync(process.env['ORTHOAXIS_HOME'] + "/database.json", 'utf8')));
+        global.database = JSON.parse(fs.readFileSync(process.env['ORTHOAXIS_HOME'] + "/database.json", 'utf8'));
+    }
+    this._connection = mysql.createPool(global.database);
+    // this._results = [];
+
+    return this;
+};
+
+ConnectionFactory.prototype.getConnection = function (callback) {
+    return this._connection.getConnection(callback);
+};
+
+module.exports = function () {
+    return ConnectionFactory;
+};
+```
 
 ##Exemplo de Controle de Transacao##
 ```
