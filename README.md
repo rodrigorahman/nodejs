@@ -152,8 +152,8 @@ CadastroPersistence.prototype.teste = function () {
 ```
 
 
-## Load automatico de modulos ##
-## deprecated utilize Consign
+## Load automatico de modulos (Deprecated utilize Consign)
+
 **express-load**
 ```
 npm install express-load --save
