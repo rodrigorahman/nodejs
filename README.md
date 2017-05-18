@@ -153,7 +153,7 @@ CadastroPersistence.prototype.teste = function () {
 
 
 ## Load automatico de modulos ##
-
+## deprecated utilize Consign
 **express-load**
 ```
 npm install express-load --save
@@ -205,6 +205,11 @@ Para fazer validações utilizamos:
 ```
 npm install express-validator --save
 ```
+
+
+## Consign ##
+
+
 
 ## Test ##
 
