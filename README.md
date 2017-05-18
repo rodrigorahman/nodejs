@@ -27,6 +27,8 @@ e adicionamos no export do modulo somente o retorno da variavel, sendo assim a v
 ```
 var app = require('express')();
 app.set("view engine", "ejs");
+// Setando o caminho de onde estão as views
+app.set('views', './app/views');
 
 module.exports = function() {
   console.log("Modulo Express Config Carregado");
